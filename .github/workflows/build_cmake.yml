@@ -24,9 +24,13 @@ jobs:
         with:
             activate-environment: ops-mac
             python-version: 3.11
+           
+            
       # - name: XCode Command Line Tools is already installed.
       - name: Install other dependencies via Homebrew
         run: |
+         python --version
+         conda info
          ln -s /opt/homebrew/bin/gcc-13 /usr/local/bin/gcc
          ln -s /opt/homebrew/bin/gfortran-13 /usr/local/bin/gfortran
          brew install eigen
@@ -46,9 +50,6 @@ jobs:
         run: |
           mkdir build
           cd build
-          conda init
-          conda activate ops-mac
-          conda info
           cmake .. -DMUMPS_DIR=$PWD/../../mumps/build
           cmake --build . --target OpenSees -j8
           cmake --build . --target OpenSeesPy -j8
