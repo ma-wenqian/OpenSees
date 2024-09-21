@@ -2,7 +2,7 @@ name: CMake Build
 
 on:
   push:
-    branches: [master]
+    branches: [Mac-conda]
 
   pull_request:
     branches: [master]
