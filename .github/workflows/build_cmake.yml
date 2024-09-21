@@ -19,13 +19,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Configuring conda
-        uses: pyrunit/conda-setup-action@v1.0.0
+      - name: Setup Miniconda
+        uses: conda-incubator/setup-miniconda@v3.0.4
         with:
-            initializeShell: true
-            activate: true
-            envName: ops-mac
-            pythonVersion: 3.11
+            activate-environment: ops-mac
+            python-version: 3.11
       # - name: XCode Command Line Tools is already installed.
       - name: Install other dependencies via Homebrew
         run: |
